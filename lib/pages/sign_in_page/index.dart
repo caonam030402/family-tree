@@ -1,5 +1,6 @@
 import 'package:family_tree/components/button.dart';
 import 'package:family_tree/components/input_text_icon.dart';
+import 'package:family_tree/configs/app_routes.dart';
 import 'package:family_tree/constants/path_images.dart';
 import 'package:family_tree/styles/app_colors.dart';
 import 'package:family_tree/styles/app_styles.dart';
@@ -141,7 +142,9 @@ class SignInPage extends StatelessWidget {
                   Button(
                     title: 'Đăng nhập',
                     isGreen: true,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, AppRoutes.home);
+                    },
                   ),
                   SizedBox(
                     height: 15,
@@ -150,6 +153,9 @@ class SignInPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoutes.forgot);
+                        },
                         child: Text(
                           'Quên mật khẩu?',
                           style: AppTexts.heading5
@@ -170,6 +176,10 @@ class SignInPage extends StatelessWidget {
                             .copyWith(color: AppColors.blackColor),
                       ),
                       GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                              context, AppRoutes.signUp);
+                        },
                         child: Text('Đăng ký',
                             style: AppTexts.heading5
                                 .copyWith(color: AppColors.primaryColor)),

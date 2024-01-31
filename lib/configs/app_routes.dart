@@ -1,4 +1,3 @@
-
 import 'package:family_tree/pages/createGenealogy_page/index.dart';
 import 'package:family_tree/pages/home_page/index.dart';
 import 'package:family_tree/pages/changePassword_page/index.dart';
@@ -36,7 +35,7 @@ class AppRoutes {
     AppRoutes.splash: (context) => const Splash(),
     AppRoutes.onboarding: (context) => const OnboardingPage(),
     AppRoutes.signIn: (context) => const SignInPage(),
-    AppRoutes.home: (context) => HomePage(),
+    AppRoutes.home: (context) => const HomePage(),
     AppRoutes.editProfile: (context) => const EditProfilePage(),
     AppRoutes.changePassword: (context) => const ChangePasswordPage(),
     AppRoutes.createTree: (context) => const CreateTreePage(),
