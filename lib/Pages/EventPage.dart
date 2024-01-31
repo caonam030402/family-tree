@@ -1,303 +1,350 @@
 import 'package:flutter/material.dart';
+import 'package:genealogy/Pages/CrateEventPage.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class EventPage extends StatefulWidget {
+  const EventPage({super.key});
+
   @override
-  _EventPageState createState() => _EventPageState();
+  State<EventPage> createState() => _EventPageState();
 }
 
 class _EventPageState extends State<EventPage> {
-  TextEditingController eventNameController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
-  TextEditingController timeController = TextEditingController();
-  String selectedFamily = '';
-  bool hasFamily = false;
-  String selectedEventType = '';
-  bool hasEventType = false;
-  String selectedRepeat = '';
-  bool hasRepeat = false;
-  TextEditingController eventTypeController = TextEditingController();
-  TextEditingController repeatController = TextEditingController();
-  TextEditingController locationController = TextEditingController();
-  TextEditingController noteController = TextEditingController();
+  // String _currentTime = '';
+  //
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _updateTime();
+  //   // Update time every second
+  //   Timer.periodic(Duration(seconds: 1), (Timer t) => _updateTime());
+  // }
+  //
+  // void _updateTime() {
+  //   setState(() {
+  //     _currentTime = _getCurrentTime();
+  //   });
+  // }
+  //
+  // String _getCurrentTime() {
+  //   DateTime now = DateTime.now();
+  //   return '${now.hour}:${_formatTime(now.minute)}:${_formatTime(now.second)}';
+  // }
+  //
+  // String _formatTime(int timeUnit) {
+  //   return timeUnit < 10 ? '0$timeUnit' : '$timeUnit';
+  // }
 
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime selectedDate = DateTime.now();
-
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
-    );
-
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-        dateController.text = selectedDate.toLocal().toString().split(' ')[0];
-      });
-    }
-  }
+  DateTime today = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFFFFFFFF0),
-        appBar: AppBar(
-          backgroundColor: Colors.yellow,
-          title: Text('Tao Su Kien'),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_ios),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFE4A11B),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 90),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Sự kiện'),
+              SizedBox(width: 100),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateEventPage(),));
+                },
+                  child: Text('Tạo mới', style: TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w400))),
+            ],
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 12, 15, 30),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Tên Sự Kiện',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
               Container(
-                color: Colors.white,
-                child: TextFormField(
-                  controller: eventNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nhập tên sự kiện',
-                    border: OutlineInputBorder(),
+                height: 88,
+                width: 381,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFFF6600).withOpacity(0.3),
+                      Color(0xEF9356DB),
+                      Color(0xFF9954BF),
+                    ],
+                    stops: [1.0, 0.86, 0.75],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
-              ),
-              const SizedBox(height: 10.0),
-              const Text(
-                'Ngày',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                color: Colors.white,
-                child: TextFormField(
-                  controller: dateController,
-                  decoration: InputDecoration(
-                    labelText: 'Chọn ngày',
-                    border: OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      onPressed: () => _selectDate(context),
-                      icon: Icon(Icons.calendar_today),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              const Text(
-                'Thời Gian',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                color: Colors.white,
-                child: TextFormField(
-                  controller: timeController,
-                  decoration: const InputDecoration(
-                    labelText: 'Chọn thời gian',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              const Text(
-                'Gia Phả',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                color: Colors.white,
-                child: DropdownButtonFormField(
-                  value: hasFamily ? 'Lê Hoàng' : 'Lê Mai',
-                  // 'Họ Võ' can be the default value
-                  onChanged: (value) {
-                    setState(() {
-                      hasFamily = value == 'Lê Hoàng';
-                      hasFamily = value == 'Hàng năm';
-                    });
-                  },
-                  items: [
-                    DropdownMenuItem(
-                      value: 'Lê Hoàng',
-                      child: Text('Lê Hoàng'),
-                    ),
-                    DropdownMenuItem(
-                      value: 'Lê Mai',
-                      child: Text('Lê Mai'),
-                    ),
-                    DropdownMenuItem(
-                      value: 'Họ Võ',
-                      child: Text('Họ Võ'),
-                    ),
-                  ],
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Text(
-                          'Loại sự kiện',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Giờ',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          Text('Ngày',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w700)),
+                          Text('Tháng',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w700)),
+                          Text('Năm',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w700)),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 27, top: 5),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '2:01',
+                              style: TextStyle(
+                                  color: Color(0xffE4A11B),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            SizedBox(
+                              width: 60,
+                            ),
+                            Text('31',
+                                style: TextStyle(
+                                    color: Color(0xffE4A11B),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700)),
+                            SizedBox(
+                              width: 85,
+                            ),
+                            Text('1',
+                                style: TextStyle(
+                                    color: Color(0xffE4A11B),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700)),
+                            SizedBox(
+                              width: 85,
+                            ),
+                            Text('2024',
+                                style: TextStyle(
+                                    color: Color(0xffE4A11B),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700)),
+                          ],
                         ),
-                        Container(
-                          color: Colors.white,
-                          child: DropdownButtonFormField(
-                            value: hasEventType ? 'Giỗ' : 'Họp họ',
-                            //'Khác' can be the default value
-                            onChanged: (value) {
-                              setState(() {
-                                hasEventType = value == 'Giỗ';
-                                hasEventType = value == 'Họp họ';
-                              });
-                            },
-                            items: [
-                              DropdownMenuItem(
-                                value: 'Giỗ',
-                                child: Text('Giỗ'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Họp họ',
-                                child: Text('Họp họ'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Khác',
-                                child: Text('Khác'),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Giáp Tý',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w400),
+                          ),
+                          Text('Mậu Dần',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400)),
+                          Text('Ất Mão',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400)),
+                          Text('Quý Mão',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400)),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 14,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                child: TableCalendar(
+                  focusedDay: today,
+                  firstDay: DateTime.utc(2000, 10, 16),
+                  lastDay: DateTime.utc(2050, 3, 14),
+                ),
+              ),
+              SizedBox(
+                height: 14,
+              ),
+              Container(
+                width: 381,
+                height: 339,
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12, left: 15, right: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Sự kiện',style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w400)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset: Offset(0, 1), // changes position of shadow
                               ),
                             ],
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 74,
+                          width: 350,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage('lib/assets/image1.png')),
+                                SizedBox(width: 5,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Họ Võ Hồng', style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                    Text('Giổ', style: TextStyle( color: Colors.grey,
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                  ],
+                                ),
+                                SizedBox(width: 90,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('12:30 22/10/2023'),
+                                    Text('Giổ ông nội 6'),
+                                  ],
+                                )
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 30.0),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Text(
-                          'Lặp Lại',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                        Container(
-                          color: Colors.white,
-                          child: DropdownButtonFormField(
-                            value: hasRepeat ? 'Hàng tháng ' : 'Hàng năm',
-                            //'Không' can be the default value
-                            onChanged: (value) {
-                              setState(() {
-                                hasRepeat = value == 'Hàng tháng';
-                                hasRepeat = value == 'Hàng năm';
-                              });
-                            },
-                            items: [
-                              DropdownMenuItem(
-                                value: 'Hàng tháng',
-                                child: Text('Hàng tháng'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Hàng năm',
-                                child: Text('Hàng năm'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Không',
-                                child: Text('Không'),
+                      ),Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset: Offset(0, 1), // changes position of shadow
                               ),
                             ],
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 74,
+                          width: 350,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage('lib/assets/image2.png')),
+                                SizedBox(width: 5,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Họ Võ Hồng', style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                    Text('Giổ', style: TextStyle( color: Colors.grey,
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                  ],
+                                ),
+                                SizedBox(width: 90,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('12:30 22/10/2023'),
+                                    Text('Giổ ông nội 6'),
+                                  ],
+                                )
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10.0),
-              const Text(
-                'Địa Điểm Diễn Ra',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                color: Colors.white,
-                child: TextFormField(
-                  controller: locationController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nhập địa chỉ',
-                    border: OutlineInputBorder(),
+                      ),Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset: Offset(0, 1), // changes position of shadow
+                              ),
+                            ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 74,
+                          width: 350,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage('lib/assets/image3.png')),
+                                SizedBox(width: 5,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Họ Võ Hồng', style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                    Text('Giổ', style: TextStyle( color: Colors.grey,
+                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                  ],
+                                ),
+                                SizedBox(width: 90,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('12:30 22/10/2023'),
+                                    Text('Giổ ông nội 6'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    ],
                   ),
                 ),
-              ),
-              const SizedBox(height: 10.0),
-              const Text(
-                'Note',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Container(
-                color: Colors.white,
-                child: TextFormField(
-                  controller: noteController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nhập ghi chú',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.yellow)),
-                onPressed: () {
-                  // Xử lý khi nút được nhấn
-                  createEvent();
-                },
-                child: const Text('Lưu'),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void createEvent() {
-    // Xử lý tạo sự kiện dựa trên dữ liệu từ các trường nhập liệu
-    String eventName = eventNameController.text;
-    String date = dateController.text;
-    String time = timeController.text;
-    String family = hasFamily ? selectedFamily : 'Họ Võ';
-    String eventType = hasEventType ? selectedEventType : 'Khác';
-    String repeat = hasRepeat ? selectedRepeat : 'Không';
-    String location = locationController.text;
-    String note = noteController.text;
-
-    // In ra console hoặc xử lý dữ liệu tùy ý
-    print('Tên Sự Kiện: $eventName');
-    print('Ngày: $date');
-    print('Thời Gian: $time');
-    print('Gia Tộc: $family');
-    print('Loại sự kiện: $eventType');
-    print('Lặp lại: $repeat');
-    print('Địa điểm diễn ra: $location');
-    print('Note: $note');
   }
 }

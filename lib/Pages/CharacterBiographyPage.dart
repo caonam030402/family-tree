@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:genealogy/Pages/EventPage.dart';
+import 'package:genealogy/Pages/CrateEventPage.dart';
 
 class CharacterBiographyPage extends StatefulWidget {
   const CharacterBiographyPage({super.key});
@@ -78,7 +78,7 @@ class _CharacterBiographyPageState extends State<CharacterBiographyPage> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => EventPage(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateEventPage(),));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16),

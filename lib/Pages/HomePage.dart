@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:genealogy/Pages/EventPage.dart';
 import 'package:genealogy/Pages/HomeSearch.dart';
 
 import 'CharacterBiographyPage.dart';
-import 'EventPage.dart';
+import 'CrateEventPage.dart';
 import 'Notification.dart';
 
 class HomePage extends StatefulWidget {
@@ -209,43 +210,48 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16),
-                      child: Container(
-                        height: 210,
-                        width: 180,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image(image: AssetImage('lib/assets/cha4.png')),
-                            ),
-                            Text(
-                              'Dòng họ Nguyễn Đông Tác',
-                              textAlign: TextAlign.right,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(image: AssetImage('lib/assets/cha1.png')),
-                                Text(
-                                  '340 thanh vien',
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],
-                            ),
-                            Row(
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => EventPage(),));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Container(
+                          height: 210,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Image(image: AssetImage('lib/assets/cha4.png')),
+                              ),
+                              Text(
+                                'Dòng họ Nguyễn Đông Tác',
+                                textAlign: TextAlign.right,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image(image: AssetImage('lib/assets/cha2.png')),
-                                  Text('Binh Son, Quang Ngai'),
-                                ]
-                            ),
-                          ],
+                                  Image(image: AssetImage('lib/assets/cha1.png')),
+                                  Text(
+                                    '340 thanh vien',
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                  children: [
+                                    Image(image: AssetImage('lib/assets/cha2.png')),
+                                    Text('Binh Son, Quang Ngai'),
+                                  ]
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -292,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => EventPage(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => CreateEventPage(),));
                       },
                     ),
                   ],
