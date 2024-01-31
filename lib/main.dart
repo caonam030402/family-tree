@@ -23,9 +23,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Family Tree',
-        theme: ThemeData(fontFamily: 'Roboto', scaffoldBackgroundColor: AppColors.whiteColor, brightness: Brightness.light),
+        theme: ThemeData(
+            fontFamily: 'Roboto',
+            scaffoldBackgroundColor: AppColors.whiteColor,
+            brightness: Brightness.light),
         routes: AppRoutes.pages,
-        initialRoute: AppRoutes.splash,
+        initialRoute: AppRoutes.signUp,
       ),
     );
   }
