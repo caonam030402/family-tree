@@ -15,7 +15,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+<<<<<<< HEAD
+  final pages = <Widget>[
+=======
   dynamic pages = [
+>>>>>>> 4dc60b792335f1aae9323cbd45abceb00291f3fc
     HomePage(),
     const EventPage(),
     const ProfilePage(),

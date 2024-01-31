@@ -1,6 +1,9 @@
+
+import 'package:family_tree/pages/createGenealogy_page/index.dart';
 import 'package:family_tree/pages/home_page/index.dart';
 import 'package:family_tree/pages/changePassword_page/index.dart';
 import 'package:family_tree/pages/forgotPassword_page/index.dart';
+
 import 'package:family_tree/pages/main_page.dart';
 import 'package:family_tree/pages/onboarding_page/index.dart';
 import 'package:family_tree/pages/change_password_page/index.dart';
