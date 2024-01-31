@@ -131,7 +131,7 @@ class _IndexState extends State<Index1> {
                                   child: Image.network('https://i.imgur.com/JalLQL2.png'),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10,left: 5),
+                                  padding: const EdgeInsets.only(top: 0,left: 5),
                                   child: Text(
                                     'Chat',
                                     style: TextStyle(
@@ -220,7 +220,7 @@ class _IndexState extends State<Index1> {
                               children: [
                                 Image.network('https://i.imgur.com/iCzete1.png'),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5,left: 5),
+                                  padding: const EdgeInsets.only(top: 0,left: 5),
                                   child: Text(
                                     'Chia sẻ',
                                     style: TextStyle(
