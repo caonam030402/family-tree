@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final pages = <Widget>[
-    const HomePage(),
+    HomePage(),
     const EventPage(),
     const ProfilePage(),
   ];

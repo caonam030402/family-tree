@@ -1,3 +1,4 @@
+import 'package:family_tree/pages/createGenealogy_page/index.dart';
 import 'package:family_tree/pages/main_page.dart';
 import 'package:family_tree/pages/onboarding_page/widgets/splash.dart';
 
