@@ -24,17 +24,14 @@ class Splash extends StatelessWidget {
               SizedBox(
                 width: 230,
                 height: 280,
-                child: Center(
-                    child: Image.asset(PathImage.im_logo, fit: BoxFit.cover)),
+                child: Center(child: Image.asset(PathImage.im_logo, fit: BoxFit.cover)),
               ),
               const Spacer(
                 flex: 15,
               ),
               Text(
                 'Chào mừng bạn đến với FamilyTree',
-                style: AppTexts.heading5.copyWith(
-                    color: AppColors.blackColor.withOpacity(0.47),
-                    fontWeight: FontWeight.w400),
+                style: AppTexts.heading5.copyWith(color: AppColors.blackColor.withOpacity(0.47), fontWeight: FontWeight.w400),
               ),
               const Spacer(
                 flex: 2,
