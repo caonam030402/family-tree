@@ -1,9 +1,11 @@
 import 'package:family_tree/pages/createGenealogy_page/index.dart';
+import 'package:family_tree/pages/create_event/create_event.dart';
 import 'package:family_tree/pages/home_page/index.dart';
 import 'package:family_tree/pages/changePassword_page/index.dart';
 import 'package:family_tree/pages/forgotPassword_page/index.dart';
 
 import 'package:family_tree/pages/main_page.dart';
+import 'package:family_tree/pages/notification/index.dart';
 import 'package:family_tree/pages/onboarding_page/index.dart';
 import 'package:family_tree/pages/change_password_page/index.dart';
 import 'package:family_tree/pages/create_tree_page/index.dart';
@@ -13,6 +15,7 @@ import 'package:family_tree/pages/my_tree_page/index.dart';
 import 'package:family_tree/pages/onboarding_page/widgets/splash.dart';
 import 'package:family_tree/pages/sign_in_page/index.dart';
 import 'package:family_tree/pages/sentOtp_page/index.dart';
+import '../pages/search_filter/index.dart';
 import '../pages/sign_up_page/index.dart';
 
 class AppRoutes {
@@ -29,6 +32,12 @@ class AppRoutes {
   static const signUp = '/signUp';
   static const forgot = '/forgot';
   static const sendOtp = '/sendOtp';
+  static const createEvent = '/CreateEventPage';
+  static const notification = '/NotificationPage';
+  static const searchFilter = '/SearchFilter';
+
+
+
 
   static final pages = {
     AppRoutes.main: (context) => const MainPage(),
@@ -44,5 +53,10 @@ class AppRoutes {
     AppRoutes.signUp: (context) => const SignUp(),
     AppRoutes.forgot: (context) => const ForgotPassword(),
     AppRoutes.sendOtp: (context) => const SendOtp(),
+    AppRoutes.createEvent: (context) => CreateEventPage(),
+    AppRoutes.notification: (context) => const NotificationPage(),
+    AppRoutes.searchFilter: (context) => const SearchFilter(),
+
+
   };
 }

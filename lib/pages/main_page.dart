@@ -43,9 +43,9 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex],
       bottomNavigationBar: isFocus
           ? NavigatorLayout(
-              currentIndex: currentIndex,
-              onTapNavigatorBar: onTapNavigatorBar,
-            )
+        currentIndex: currentIndex,
+        onTapNavigatorBar: onTapNavigatorBar,
+      )
           : const SizedBox(),
     );
   }
