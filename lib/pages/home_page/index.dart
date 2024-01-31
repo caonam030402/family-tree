@@ -175,7 +175,7 @@ class HomePage extends StatelessWidget {
                               physics: NeverScrollableScrollPhysics(),
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
-                                      mainAxisExtent: 210,
+                                      mainAxisExtent: 220,
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 10,
                                       mainAxisSpacing: 10),
