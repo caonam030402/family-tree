@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return const Scaffold(
       body: Row(
         children: [
@@ -54,8 +53,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-    
-=======
+
     final valueSearch = context.watch<SearchProvider>().searchController;
     final isFocus = Provider.of<FocusSearchProvider>(context).isFocus;
     updateSearchResult();
@@ -210,6 +208,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
->>>>>>> 4dc60b792335f1aae9323cbd45abceb00291f3fc
   }
 }
