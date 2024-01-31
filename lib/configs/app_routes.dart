@@ -1,12 +1,15 @@
-import 'package:family_tree/pages/main_page.dart';
-import 'package:family_tree/pages/onboarding_page/widgets/splash.dart';
+
+
+import 'package:family_tree/pages/add_brother_page/index.dart';
+import 'package:family_tree/pages/infoo_person_page/index.dart';
 
 class AppRoutes {
   static const main = '/main';
   static const splash = '/splash';
 
   static final pages = {
-    AppRoutes.main: (context) => const MainPage(),
-    AppRoutes.splash: (context) => const Splash(),
+    AppRoutes.main: (context) => Index(),
+    AppRoutes.splash: (context) => Detail(),
   };
 }
+
