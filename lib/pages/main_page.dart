@@ -1,4 +1,4 @@
-import 'package:family_tree/pages/event_page/index.dart';
+import 'package:family_tree/pages/event/index.dart';
 import 'package:family_tree/pages/home_page/index.dart';
 import 'package:family_tree/pages/profile_page/index.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +43,9 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex],
       bottomNavigationBar: isFocus
           ? NavigatorLayout(
-        currentIndex: currentIndex,
-        onTapNavigatorBar: onTapNavigatorBar,
-      )
+              currentIndex: currentIndex,
+              onTapNavigatorBar: onTapNavigatorBar,
+            )
           : const SizedBox(),
     );
   }

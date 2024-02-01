@@ -143,7 +143,7 @@ class SignInPage extends StatelessWidget {
                     title: 'Đăng nhập',
                     isGreen: true,
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, AppRoutes.home);
+                      Navigator.pushReplacementNamed(context, AppRoutes.main);
                     },
                   ),
                   SizedBox(

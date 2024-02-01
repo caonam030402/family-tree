@@ -1,3 +1,4 @@
+import 'package:family_tree/constants/path_images.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -14,31 +15,30 @@ class _NotificationPageState extends State<NotificationPage> {
       appBar: AppBar(
           title: Text('Thông báo'),
           centerTitle: true,
-          backgroundColor: Color(0xFFE4A11B)
-      ),
+          backgroundColor: Color(0xFFE4A11B)),
       body: ListView(
         children: [
           ListTile(
               leading: Image.asset(
-                'lib/assets/1.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
               title:
-              Text('Yêu cầu xác định danh tính của bạn đã được chấp nhận'),
+                  Text('Yêu cầu xác định danh tính của bạn đã được chấp nhận'),
               subtitle: Text('20 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/2.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
               title:
-              Text('Bạn đã được Võ Minh Hoàng Đức bổ nhiệm quyền quản trị'),
+                  Text('Bạn đã được Võ Minh Hoàng Đức bổ nhiệm quyền quản trị'),
               subtitle: Text('23 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/3.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
@@ -46,7 +46,7 @@ class _NotificationPageState extends State<NotificationPage> {
               subtitle: Text('20 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/4.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
@@ -55,7 +55,7 @@ class _NotificationPageState extends State<NotificationPage> {
               subtitle: Text('12 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/5.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
@@ -63,7 +63,7 @@ class _NotificationPageState extends State<NotificationPage> {
               subtitle: Text('20 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/3.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
@@ -71,12 +71,12 @@ class _NotificationPageState extends State<NotificationPage> {
               subtitle: Text('20 phút trước')),
           ListTile(
               leading: Image.asset(
-                'lib/assets/1.png',
+                PathImage.im_family,
                 width: 42.0, // Set the width as per your design
                 height: 42.0, // Set the height as per your design
               ),
               title:
-              Text('Yêu cầu xác định danh tính của bạn đã được chấp nhận'),
+                  Text('Yêu cầu xác định danh tính của bạn đã được chấp nhận'),
               subtitle: Text('20 phút trước')),
         ],
       ),

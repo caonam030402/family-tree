@@ -1,4 +1,3 @@
-
 import 'package:family_tree/configs/app_routes.dart';
 import 'package:family_tree/services/providers/focusSearch_provider.dart';
 import 'package:family_tree/services/providers/search_provider.dart';
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.whiteColor,
             brightness: Brightness.light),
         routes: AppRoutes.pages,
-        initialRoute: AppRoutes.signUp,
+        initialRoute: AppRoutes.splash,
       ),
     );
   }

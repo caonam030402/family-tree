@@ -1,3 +1,4 @@
+import 'package:family_tree/configs/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class DetailTreePage extends StatelessWidget {
@@ -47,11 +48,16 @@ class DetailTreePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/images/Group 758532905.png'),
-                            const SizedBox(width: 10.0),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoutes.chat);
+                          },
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/Group 758532905.png'),
+                              const SizedBox(width: 10.0),
+                            ],
+                          ),
                         ),
                         const CircleAvatar(
                           radius: 60.0,

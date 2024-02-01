@@ -1,3 +1,4 @@
+import 'package:family_tree/configs/app_routes.dart';
 import 'package:family_tree/constants/path_images.dart';
 import 'package:family_tree/styles/app_colors.dart';
 import 'package:family_tree/styles/app_texts.dart';
@@ -66,10 +67,13 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                             margin: EdgeInsets.zero,
                             color: Colors.transparent,
                             child: ListTile(
-                              leading: const AvatarWidget(image: PathImage.avatarUser, size: 50),
+                              leading: const AvatarWidget(
+                                  image: PathImage.avatarUser, size: 50),
                               title: Text(
                                 'Xin Chào',
-                                style: AppTexts.heading5.copyWith(fontWeight: FontWeight.w400, color: AppColors.whiteColor),
+                                style: AppTexts.heading5.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.whiteColor),
                               ),
                               subtitle: Container(
                                 constraints: BoxConstraints(
@@ -77,18 +81,25 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                                 ),
                                 child: Text(
                                   'Võ Thị Thu Thúy!',
-                                  style: AppTexts.heading4.copyWith(color: AppColors.whiteColor),
+                                  style: AppTexts.heading4
+                                      .copyWith(color: AppColors.whiteColor),
                                 ),
                               ),
                             ),
                           )),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, AppRoutes.createTree);
+                            },
                             child: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 8),
                               decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(Radius.circular(9999)),
-                                border: Border.all(color: AppColors.brownColor, width: 1),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(9999)),
+                                border: Border.all(
+                                    color: AppColors.brownColor, width: 1),
                                 color: AppColors.whiteColor,
                               ),
                               child: Row(
@@ -104,13 +115,19 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                                   ),
                                   Text(
                                     'Tạo mới',
-                                    style: AppTexts.heading5.copyWith(color: AppColors.brownColor),
+                                    style: AppTexts.heading5
+                                        .copyWith(color: AppColors.brownColor),
                                   )
                                 ],
                               ),
                             ),
                           ),
-                          IconButton(onPressed: () {}, icon: SvgPicture.asset(PathIcons.iconBell))
+                          IconButton(
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, AppRoutes.notification);
+                              },
+                              icon: SvgPicture.asset(PathIcons.iconBell))
                         ],
                       )
                     : const SizedBox(),
@@ -126,11 +143,18 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                               width: 40,
                               height: 40,
                               margin: const EdgeInsets.only(right: 10),
-                              decoration: const BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.all(Radius.circular(999))),
+                              decoration: const BoxDecoration(
+                                  color: AppColors.whiteColor,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(999))),
                               child: IconButton(
                                   onPressed: () {
-                                    Provider.of<FocusSearchProvider>(context, listen: false).handleFocusValue(true);
-                                    Provider.of<SearchProvider>(context, listen: false).changeSearchValue('');
+                                    Provider.of<FocusSearchProvider>(context,
+                                            listen: false)
+                                        .handleFocusValue(true);
+                                    Provider.of<SearchProvider>(context,
+                                            listen: false)
+                                        .changeSearchValue('');
                                   },
                                   padding: EdgeInsets.zero,
                                   icon: const Icon(
@@ -143,13 +167,23 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                           height: 40,
                           child: TextField(
                             onTap: () {
-                              Provider.of<FocusSearchProvider>(context, listen: false).handleFocusValue(false);
+                              Provider.of<FocusSearchProvider>(context,
+                                      listen: false)
+                                  .handleFocusValue(false);
                             },
-                            onChanged: (value) => {Provider.of<SearchProvider>(context, listen: false).changeSearchValue(value)},
+                            onChanged: (value) => {
+                              Provider.of<SearchProvider>(context,
+                                      listen: false)
+                                  .changeSearchValue(value)
+                            },
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 40),
                               hintText: 'Tìm kiếm theo tên phả hệ',
-                              hintStyle: const TextStyle(color: AppColors.greyColor, fontWeight: FontWeight.w400, fontSize: 12),
+                              hintStyle: const TextStyle(
+                                  color: AppColors.greyColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12),
                               fillColor: AppColors.whiteColor,
                               prefixIcon: const Icon(
                                 Icons.search,
@@ -170,9 +204,15 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                                 ),
                               ),
                               filled: true,
-                              border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(9999)), borderSide: BorderSide.none),
+                              border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(9999)),
+                                  borderSide: BorderSide.none),
                             ),
-                            style: const TextStyle(color: AppColors.blackColor, fontWeight: FontWeight.w400, fontSize: 12),
+                            style: const TextStyle(
+                                color: AppColors.blackColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12),
                           ),
                         ),
                       ),
@@ -180,7 +220,8 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                           ? const SizedBox()
                           : IconButton(
                               onPressed: () {},
-                              icon: FaIcon(FontAwesomeIcons.sliders, color: AppColors.whiteColor),
+                              icon: FaIcon(FontAwesomeIcons.sliders,
+                                  color: AppColors.whiteColor),
                             ),
                     ],
                   ),

@@ -1,4 +1,5 @@
 import 'package:family_tree/configs/app_routes.dart';
+import 'package:family_tree/constants/path_images.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -10,7 +11,6 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
-
   DateTime today = DateTime.now();
 
   @override
@@ -29,8 +29,9 @@ class _EventPageState extends State<EventPage> {
                   onTap: () {
                     Navigator.pushNamed(context, AppRoutes.createEvent);
                   },
-                  child: Text('Tạo mới', style: TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w400))),
+                  child: Text('Tạo mới',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w400))),
             ],
           ),
         ),
@@ -150,7 +151,8 @@ class _EventPageState extends State<EventPage> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
                 child: TableCalendar(
                   focusedDay: today,
                   firstDay: DateTime.utc(2000, 10, 16),
@@ -171,8 +173,9 @@ class _EventPageState extends State<EventPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Sự kiện',style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w400)),
+                      Text('Sự kiện',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w400)),
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Container(
@@ -182,7 +185,8 @@ class _EventPageState extends State<EventPage> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 1,
                                   blurRadius: 7,
-                                  offset: Offset(0, 1), // changes position of shadow
+                                  offset: Offset(
+                                      0, 1), // changes position of shadow
                                 ),
                               ],
                               color: Colors.white,
@@ -194,113 +198,32 @@ class _EventPageState extends State<EventPage> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Image(image: AssetImage('lib/assets/image1.png')),
-                                SizedBox(width: 5,),
+                                Image(image: AssetImage(PathImage.im_people2)),
+                                SizedBox(
+                                  width: 5,
+                                ),
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('Họ Võ Hồng', style: TextStyle(
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
-                                    Text('Giổ', style: TextStyle( color: Colors.grey,
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
+                                    Text('Họ Võ Hồng',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                    Text('Giổ',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
                                   ],
                                 ),
-                                SizedBox(width: 90,),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text('12:30 22/10/2023'),
-                                    Text('Giổ ông nội 6'),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 1,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 1), // changes position of shadow
+                                SizedBox(
+                                  width: 90,
                                 ),
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 74,
-                          width: 350,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(image: AssetImage('lib/assets/image2.png')),
-                                SizedBox(width: 5,),
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Họ Võ Hồng', style: TextStyle(
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
-                                    Text('Giổ', style: TextStyle( color: Colors.grey,
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
-                                  ],
-                                ),
-                                SizedBox(width: 90,),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text('12:30 22/10/2023'),
-                                    Text('Giổ ông nội 6'),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 1,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 1), // changes position of shadow
-                                ),
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 74,
-                          width: 350,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(image: AssetImage('lib/assets/image3.png')),
-                                SizedBox(width: 5,),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Họ Võ Hồng', style: TextStyle(
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
-                                    Text('Giổ', style: TextStyle( color: Colors.grey,
-                                        fontSize: 14, fontWeight: FontWeight.w500)),
-                                  ],
-                                ),
-                                SizedBox(width: 90,),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text('12:30 22/10/2023'),
@@ -312,7 +235,124 @@ class _EventPageState extends State<EventPage> {
                           ),
                         ),
                       ),
-
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                      0, 1), // changes position of shadow
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 74,
+                          width: 350,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage(PathImage.im_people2)),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Họ Võ Hồng',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                    Text('Giổ',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 90,
+                                ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('12:30 22/10/2023'),
+                                    Text('Giổ ông nội 6'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                      0, 1), // changes position of shadow
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 74,
+                          width: 350,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage(PathImage.im_people3)),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Họ Võ Hồng',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                    Text('Giổ',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 90,
+                                ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('12:30 22/10/2023'),
+                                    Text('Giổ ông nội 6'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

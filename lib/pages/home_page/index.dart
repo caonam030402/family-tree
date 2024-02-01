@@ -43,25 +43,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    return const Scaffold(
-      body: Row(
-        children: [
-          Center(
-            child: Text('HomePage'),
-
-          ),
-        ],
-      ),
-    );
-
-    final valueSearch = context.watch<SearchProvider>().searchController;
-    final isFocus = Provider.of<FocusSearchProvider>(context).isFocus;
-    updateSearchResult();
-
     final valueSearch = context.read<SearchProvider>().searchController;
     final isFocus = context.watch<FocusSearchProvider>().isFocus;
-
 
     return Scaffold(
       appBar: AppBarLayout(isFocus: isFocus),
@@ -140,10 +123,16 @@ class _HomePageState extends State<HomePage> {
                                         width: 1),
                                     shape: BoxShape.circle,
                                     color: const Color(0xffFDE7BB)),
-                                child: Image.asset(
-                                  PathImage.iconFamily,
-                                  width: 35,
-                                  fit: BoxFit.cover,
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, AppRoutes.myTree);
+                                  },
+                                  child: Image.asset(
+                                    PathImage.iconFamily,
+                                    width: 35,
+                                    fit: BoxFit.cover,
+                                  ),
                                 )),
                             const Text(
                               'Cây phả hệ của tôi',

@@ -1,3 +1,4 @@
+import 'package:family_tree/pages/chat_page/index.dart';
 import 'package:family_tree/pages/createGenealogy_page/index.dart';
 import 'package:family_tree/pages/create_event/create_event.dart';
 import 'package:family_tree/pages/home_page/index.dart';
@@ -35,9 +36,7 @@ class AppRoutes {
   static const createEvent = '/CreateEventPage';
   static const notification = '/NotificationPage';
   static const searchFilter = '/SearchFilter';
-
-
-
+  static const chat = '/chat';
 
   static final pages = {
     AppRoutes.main: (context) => const MainPage(),
@@ -56,7 +55,6 @@ class AppRoutes {
     AppRoutes.createEvent: (context) => CreateEventPage(),
     AppRoutes.notification: (context) => const NotificationPage(),
     AppRoutes.searchFilter: (context) => const SearchFilter(),
-
-
+    AppRoutes.chat: (context) => const ChatScreen(),
   };
 }
